@@ -1,0 +1,11 @@
+- name: Deploy the AD
+  hosts: windows
+  pre_tasks:
+  - name: Include Vars
+    include_vars: my_ad_vars.yml
+  roles:
+  - name: win_ad_install
+  tasks:
+  - name: Finished Installation
+    debug:
+      msg: "If you see this. All went fine."

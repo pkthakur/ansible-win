@@ -1,0 +1,8 @@
+- name: deploy OpenSSH on the Windows
+  hosts: windows
+  pre_tasks:
+  - name: Include Vars
+    include_vars: ssh_var.yml
+  roles:
+  - win_service_config
+  

@@ -1,0 +1,9 @@
+- name: Deploy the AD
+  hosts: windows
+  tasks:
+  - name: Import Vars
+    include_vars: my_ad_vars.yml
+
+  - name: Finished Installation
+    debug:
+      msg: "ad_domain_name: ad1.7dc2.example.opentlc.com and ad_safe_mode_password: {{ansible_password}} and ad_admin_user: admin@{{ ad_domain_name}} ad_admin_password: {{ansible_password}}"
