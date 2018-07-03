@@ -1,0 +1,3 @@
+---
+# vars file for win_ad_install
+ad_domain_name: ad1.7dc2.example.opentlc.com
