@@ -1,0 +1,22 @@
+---
+# tasks file for win_ad_install
+- name: Install Windows AD 
+  win_feature:
+    name: AD-Domain-Services
+    state: present
+
+- name: Setup the AD Controller
+  win_domain:
+    dns_domain_name: {{ ad_domain_name }} 
+    safe_mode_password: jVMijRwLbI02gFCo2xkjlZ9lxEA7bm7zgg==
+
+- name: Reboots the instance
+  win_reboot:
+    reboot_timeout: 720
+
+- name: Get the status
+  command: nltest /dclist:"{{ ad_domain_name }}"
+
+
+    
+    
